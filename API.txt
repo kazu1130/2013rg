@@ -1,0 +1,42 @@
+/getstores.php
+ GET
+  lat:緯度
+  lon:経度
+  session:"セッションID"
+ POST
+  (image):現在地の画像データ
+ 
+ 戻り値
+  JSON
+   {
+    status:success
+    store_id:店のID,
+    store_name:店の名前,
+    comments:{
+     username:"コメントしたユーザ名",
+     comment:"コメント内容"
+    }
+   }
+
+/postcomments.php
+ POST
+  comment:"コメント"
+  session:"セッションID"
+  store_id:店のID
+ 戻り値
+ JSON
+  {
+    success
+  }
+
+
+
+全処理共通
+ 
+ 戻り値
+  JSON
+   {
+    status:error
+   }
+ 
+ 

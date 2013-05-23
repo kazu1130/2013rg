@@ -1,19 +1,20 @@
-店テーブル
+店テーブル stores
 　店id,名前,住所,アドレス,GPS,ユーザid
-  
+  id,name,address,url,gps_lat,gps_lon,user_id
 
-
-
-
-
-
-画像テーブル
+画像テーブル  images
 　画像id,店id,アドレス（直接dbに画像は死ねるのでuploadして置いておく）
+  id,store_id,path
 
-コメントテーブル
+コメントテーブル comments
 　コメントid,ユーザid,コメント
+  id,user_id,comment
 
-ユーザテーブル
+ユーザテーブル users
 　ユーザid,アカウントid（ログイン用）,アカウント名（表示用）,パスワード（sha1とかでハッシュ化しとく）
+  id,login_id,name,pass
+
+
+
 
 
