@@ -3,13 +3,23 @@
 class DBConnection {
 
   private $dbh;
-  function __construct() {
+  private static $instance = null;
+
+  private function __construct() {
     $dbh = new PDO(CONSTS::DB_SN, CONSTS::DB_USER, CONSTS::DB_PASS);
     if ($dbh == null){
         die("Error");
     }
   }
-  function fetchAll($query,$val){
+
+  public static function getInstance(){
+    if($instance == null){
+      $instance = new DBConnection();
+    }
+    return $instance;
+  }
+
+  public function fetchAll($query,$val){
     try {
       $stmt = $dbh->prepare($query);
       $stmt->execute($val);
@@ -18,7 +28,6 @@ class DBConnection {
       die("QUERY ERROR");
     }
   }
-
 
   function __destruct() {
     /* 接続を閉じます */
