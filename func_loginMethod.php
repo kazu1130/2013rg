@@ -25,7 +25,7 @@ function getSecretToken($user_id){
   $dbobj = DBConnection::getInstance();
   $user_array=$dbobj->fetchALL("SELECT * from usersessions WHERE uname = ?",array($user_id));
   $secretToken=$user_array['token'];
-  return $secreToken;
+  return $secretToken;
 }
 
 }
