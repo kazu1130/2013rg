@@ -10,7 +10,6 @@ $mparlan = 91159.16112;
 $user = User::getInstance($_GET["session_id"]);
 $dbh = DBConnection::getInstance();
 
-
 $stores = $dbh->fetchAll("SELECT * FROM stores WHERE (lat > ? AND lat < ?) AND (lon > ? OR lon < ?)",array(
   $_GET["lat"] - (10 / $mparlat),
   $_GET["lat"] + (10 / $mparlat),

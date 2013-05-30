@@ -36,15 +36,4 @@ function getSecretToken($login_id){
 }
 */
 
-
-function checkSecretToken($token){
-  $dbobj = DBConnection::getInstance();
-  $user_array=$dbobj->fetchALL("SELECT * from usersessions WHERE token = ?",array($token));
-  if($user_array[0] == null){
-    return null;
-  }
-  return $user_array[0]["id"];
-}
-
-
 ?>
