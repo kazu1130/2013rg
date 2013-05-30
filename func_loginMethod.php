@@ -3,7 +3,7 @@ require_once('./dbconnect.php');
 
 function checkLoginRequest($login_id,$passwd){
   //DEFINE this outside of this func
-  $seed="61737b06cff3d7f999c297d96f2b20007521eee1";
+  $seed=getSTATIC("MasterSeed");
   
   $dbobj = DBConnection::getInstance();
   $user_array= $dbobj->fetchALL("SELECT * from userdata WHERE login_id = ?",array($login_id));
