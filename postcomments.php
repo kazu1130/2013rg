@@ -15,12 +15,13 @@ if(!$comment || !$session_id || !$store_id){
  perror('2000','lack_of_data','必要な情報が不足しています');
  exit;
 }
-if($login_id=checkSecretToken($_session_id)===false){
+if($uid=checkSecretToken($_session_id)===false){
   perror('7000','invalid_token','セッション確立エラー');
   exit;
 }
+$update_array = array($uid,$comment,time());
+$result_update = $dbobj->fetchALL("INSERT INTO comments (user_id,comment,time) VALUES (?,?,?,?)",array($update_array));
 
-$result_update = $dbobj->fetchALL("");
-
+print json_encode(array("status"=>success,$ret_sotres));
 
 ?>

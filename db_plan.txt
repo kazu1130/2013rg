@@ -7,8 +7,8 @@
   id,store_id,path
 
 コメントテーブル comments
-　コメントid,ユーザid,コメント
-  id,user_id,comment
+　コメントid,ユーザid,コメント,時間(unixtime)
+  id,user_id,comment,time
 
 ユーザテーブル users
 　ユーザid,アカウントid（ログイン用）,アカウント名（表示用）,パスワード（sha1とかでハッシュ化しとく）

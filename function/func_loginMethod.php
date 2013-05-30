@@ -43,7 +43,7 @@ function checkSecretToken($token){
   if($user_array[0] == null){
     return null;
   }
-  return $user_array[0]["login_id"];
+  return $user_array[0]["id"];
 }
 
 
