@@ -2,6 +2,7 @@
 require_once('./class/consts.php');
 require_once('./class/dbconnect.php');
 require_once('./class/user.php');
+require_once('./function/func_error.php');
 
 
 $mparlat = 111263.28336;
@@ -40,7 +41,7 @@ for($i=0;$i<length($stores);++$i){
 }
 
 
-print json_encode(array("status"=>success,$ret_stores);
+print json_encode(array("status"=>"success",$ret_stores);
 
 
 ?>

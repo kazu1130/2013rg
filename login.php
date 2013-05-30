@@ -1,19 +1,21 @@
 <?php
 require_once('./class/consts.php');
 require_once('./class/dbconnect.php');
+require_once('./function/func_error.php');
+
 
 $dbobj = DBConnection::getInstance();
 $user_array= $dbobj->fetchALL("SELECT * from userdata WHERE login_id = ?",array($_GET["login_id"]));
 $passwd_hash=sha1(CONSTS::HASH_SEED.$_GET["pass"]);
 
 if($user_array[0] != null){
-  die(json_encode(array("status"=>"Error")));
+  error_exit("認証エラー");
 }
 
 $user_data = $user_array[0];
 
 if($user_data['pass'] != $passwd_hash){
-  die(json_encode(array("status"=>"Error")));
+  error_exit("認証エラー");
 }
 
 //MAKE RANDOMIZE ALPHABET//
