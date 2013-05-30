@@ -1,14 +1,13 @@
 <?php
-require_once('./func_getConfigure.php');
+require_once('./consts.php');
 require_once('./dbconnect.php');
 
 function checkLoginRequest($login_id,$passwd){
   //DEFINE this outside of this func
-  $seed=getSTATIC("MasterSeed");
   
   $dbobj = DBConnection::getInstance();
   $user_array= $dbobj->fetchALL("SELECT * from userdata WHERE login_id = ?",array($login_id));
-  $passwd_hash=sha1($seed.$passwd);
+  $passwd_hash=sha1(CONSTS::HASH_SEED.$passwd);
   if($user_array[0] != null){
     perror('6000','login_error');
     return false;
