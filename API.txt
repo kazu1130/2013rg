@@ -9,13 +9,19 @@
  戻り値
   JSON
    {
-    status:success
-    store_id:店のID,
-    store_name:店の名前,
-    comments:{
-     username:"コメントしたユーザ名",
-     comment:"コメント内容"
-    }
+     status:success
+       {
+         store_id:店のID,
+         store_name:店の名前,
+         lat:緯度,
+         lon:経度,
+         comments:{
+           {
+             username:"コメントしたユーザ名",
+             comment:"コメント内容"
+           }...
+         }
+       }...
    }
 
 /postcomments.php
