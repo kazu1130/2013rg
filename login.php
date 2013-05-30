@@ -9,13 +9,13 @@ $user_array= $dbobj->fetchALL("SELECT * from userdata WHERE login_id = ?",array(
 $passwd_hash=sha1(CONSTS::HASH_SEED.$_GET["pass"]);
 
 if($user_array[0] != null){
-  error_exit("認証エラー");
+  error_exit("隱崎ｨｼ繧ｨ繝ｩ繝ｼ");
 }
 
 $user_data = $user_array[0];
 
 if($user_data['pass'] != $passwd_hash){
-  error_exit("認証エラー");
+  error_exit("隱崎ｨｼ繧ｨ繝ｩ繝ｼ");
 }
 
 //MAKE RANDOMIZE ALPHABET//
