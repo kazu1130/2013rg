@@ -1,4 +1,7 @@
 <?php
+
+//Program by http://kudakurage.hatenadiary.com/entry/20100319/1268986000
+
 //GPSなどの緯度経度の２点間の直線距離を求める（世界測地系）
 
 //$lat1, $lon1 --- A地点の緯度経度
