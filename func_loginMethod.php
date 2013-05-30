@@ -6,20 +6,23 @@ function checkLoginRequest($login_id,$passwd){
   $seed="61737b06cff3d7f999c297d96f2b20007521eee1";
   
   $dbobj = DBConnection::getInstance();
-  $user_array=$dbobj->fetchALL("SELECT * from userdata WHERE login_id = ?",array($login_id));
+  $user_array= $dbobj->fetchALL("SELECT * from userdata WHERE login_id = ?",array($login_id));
   $passwd_hash=sha1($seed.$passwd);
   if($user_array[0] != null){
     perror('6000','login_error');
     return false;
   }
-  if($user_array[0]['passwd'] != $passwd_hash){
+  
+  $user_data = $user_array[0];
+  
+  if($user_data['passwd'] != $passwd_hash){
     perror('6000','login_error');
     return false;
   }else{
     //MAKE RANDOMIZE ALPHABET//
-    $secretToken=sha1($seed.$user_array['login_id'].time());
+    $secretToken=sha1($seed.$user_data['login_id'].time());
     //UPDATE TO DATABASE//
-    $dbobj->fetchALL("UPDATE usersessions SET token = ? WHERE login_id = ?",array($secretToken,$login_id));
+    $dbobj->fetchALL("UPDATE usersessions SET token = ? WHERE login_id = ?",array($secretToken,$user_data['login_id']));
 
     //SET ENV//
     //return true;
