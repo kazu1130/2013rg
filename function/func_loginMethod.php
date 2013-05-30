@@ -1,6 +1,6 @@
 <?php
-require_once('./consts.php');
-require_once('./dbconnect.php');
+require_once('./class/consts.php');
+require_once('./class/dbconnect.php');
 
 function checkLoginRequest($login_id,$passwd){
   //DEFINE this outside of this func
@@ -9,14 +9,12 @@ function checkLoginRequest($login_id,$passwd){
   $user_array= $dbobj->fetchALL("SELECT * from userdata WHERE login_id = ?",array($login_id));
   $passwd_hash=sha1(CONSTS::HASH_SEED.$passwd);
   if($user_array[0] != null){
-    perror('6000','login_error');
     return false;
   }
   
   $user_data = $user_array[0];
   
   if($user_data['passwd'] != $passwd_hash){
-    perror('6000','login_error');
     return false;
   }else{
     //MAKE RANDOMIZE ALPHABET//
