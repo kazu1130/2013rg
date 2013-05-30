@@ -19,8 +19,8 @@ if($uid=checkSecretToken($_session_id)===false){
   perror('7000','invalid_token','セッション確立エラー');
   exit;
 }
-$update_array = array($uid,$comment,time());
-$result_update = $dbobj->fetchALL("INSERT INTO comments (user_id,comment,time) VALUES (?,?,?,?)",array($update_array));
+$update_array = array($uid,$store_id,$comment,time());
+$result_update = $dbobj->fetchALL("INSERT INTO comments (user_id,store_id,comment,time) VALUES (?,?,?,?,?)",array($update_array));
 
 print json_encode(array("status"=>success,$ret_sotres));
 
