@@ -1,4 +1,5 @@
 <?php
+require_once('./func_getConfigure.php');
 require_once('./dbconnect.php');
 
 function checkLoginRequest($login_id,$passwd){
