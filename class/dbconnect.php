@@ -1,5 +1,5 @@
 <?php
- require_once './consts.php';
+ require_once '../class/consts.php';
 class DBConnection {
 
   private $dbh;
