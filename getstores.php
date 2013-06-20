@@ -1,9 +1,6 @@
 <?php
-require_once('./class/consts.php');
-require_once('./class/dbconnect.php');
-require_once('./class/user.php');
-require_once('./function/func_error.php');
-
+require_once('./function/funcs_system.php');
+init();
 
 $mparlat = 111263.28336;
 $mparlan = 91159.16112;

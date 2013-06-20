@@ -1,8 +1,6 @@
 <?php
-require_once('./class/consts.php');
-require_once('./class/dbconnect.php');
-require_once('./function/func_error.php');
-
+require_once('./function/funcs_system.php');
+init();
 
 $dbobj = DBConnection::getInstance();
 $user_array= $dbobj->fetchALL("SELECT * from userdata WHERE login_id = ?",array($_GET["login_id"]));

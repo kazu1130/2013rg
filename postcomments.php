@@ -1,9 +1,6 @@
 <?php
-require_once('./class/consts.php');
-require_once('./class/dbconnect.php');
-require_once('./class/user.php');
-require_once('./function/func_error.php');
-
+require_once('./function/funcs_system.php');
+init();
 $user = User::getInstance($_GET["session_id"]);
 $dbh = DBConnection::getInstance();
 
