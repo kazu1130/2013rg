@@ -1,16 +1,19 @@
 <?php
+function myautoloader ($pClassName) {
+    include(dirname(__FILE__) . "/../class/" . $pClassName . ".php");
+  }
+
 function init(){
   //autoLoader
-  spl_autoload_register(function my_autoload ($pClassName) {
-    include(__DIR__ . "../class/" . $pClassName . ".php");
-  });
+
+  spl_autoload_register("myautoloader");
 
   header("X-Content-Type-Options: nosniff");
 }
 
 function error_exit($text){
-  //ƒƒO‚É‘‚­ˆ—‚Æ‚©‚ ‚é‚ÆK‚¹‚É‚È‚ê‚é‹C‚ª‚µ‚È‚­‚à‚È‚¢H
-  die(json_encode(array("status"=>"error","text"=>$text));
+  //ãƒ­ã‚°ã«æ›¸ãå‡¦ç†ã¨ã‹ã‚ã‚‹ã¨å¹¸ã›ã«ãªã‚Œã‚‹æ°—ãŒã—ãªãã‚‚ãªã„ï¼Ÿ
+  die(json_encode(array("status"=>"error","text"=>$text)));
 }
 
 ?>
